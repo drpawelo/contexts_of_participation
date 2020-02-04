@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wheels>
+	<wheel name="National Factors">
+		<item name="Socio-cultural values">Shared beliefs, ideals, values and principles, e.g. justice, human rights, equality and liberty also traditions such as gender roles. Mono or multi-cultural society. Religious/secular society.</item> 
+		<item name="Type of economy">The production, distribution and consumption of goods and services, e.g. capitalist, socialist, free trade, market, mixed, agrarian, industrial, post-industrial.</item>
+		<item name="National policies">A country's legal framework. Reflect a government's priorities such as the economy, education, security, health, natural resources and dealings with other countries.</item>
+	</wheel>
+	<wheel name="Social Factors">
+		<item name="Leisure opportunities">Non-work related activities. Opportunities to participate in sport, social activities, clubs, develop personal interests, hobbies, creativity, arts.</item>
+		<item name="Work">Paid and unpaid employment. Also relates to underemployment and unemployment.  Full-time/part-time.  Secure/vulnerable.  Varied work opportunities.  Job/promotion prospects.  Choice.</item> 
+		<item name="Media">T.V., film, newspapers, radio, digital/web. Includes representation, freedom of the press, variety of media, access to self-representation, funding, public/private.</item>
+		<item name="Education">Different forms and environments relating to teaching and learning. Spread of education opportunities from early years to higher/post grad education.  Lifelong learning.</item>
+		<item name="Housing">Type and quality of houses and flats. Includes homelessness and vulnerable housing. Affordability. Rental or ownership culture.</item>
+		<item name="Economic status">Relative wealth or poverty.  Earning potential/spending power of certain groups of people. Basis for salary negotiations. May be influenced by class, gender, ethnicity, education, occupation. </item>
+		<item name="Health and social care">Systems designed to care for the ill, sick, disabled, and disadvantaged. How, when and where services are delivered. Funding, priorities, access to services and treatments.</item> 
+		<item name="Technology">Access to technological knowledge, skills and resources. Availability, level of development. Equipment, machinery, engineering, computing hardware/software.</item>
+	</wheel>
+	<wheel name="Local Factors">
+		<item name="Local environments">Includes both the physical and emotional environment.  Built environment, type of community, infrastructures (roads, access to water, electricity etc).  Attitudes, beliefs and values.  Languages used/accepted.</item>
+		<item name="Social support">The emotional and physical support given by family, friends, co-workers, other individuals and community groups forming our social networks.  Can be provided by statutory services.</item>
+		<item name="Daily living activities">Types e.g. self-care, work, leisure.  Balance between different occupations and activities.  Necessity or choice?  Habits and routines.  Can be considered in terms of availability of occupations or participation choices.</item>
+	</wheel>
+	<wheel name="Personal Factors">
+		<item name="The Body">Body structures and functions.  Conceptualisations of the body, e.g. biological, mechanical, medical, lived experience.  Representation, e.g. media images, art, religious, cultural.</item>
+		<item name="Identity">Non-material aspects of a person.  Self-image, identification as an individual or part of a group, psychological or religious descriptions.  Ideas of self-hood, independent or interdependent.</item>
+	</wheel>	
+	<wheel name="Participation">
+		<item name="Participation">Being able to take part in, be involved in or contribute to: personal daily living activities, activities within the local environment, activities within society</item>
+	</wheel>	
+</wheels>

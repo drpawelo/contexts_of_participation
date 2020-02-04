@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:13px;
+}
+
+#full-size{
+  height:100%;
+  width:100%;
+  overflow:hidden; /* or overflow:auto; if you want scrollbars */
+}
+
+#tt {position:absolute; display:block; background:url(tt_left.gif) top left no-repeat}
+#tttop {display:block; height:5px; margin-left:5px; background:url(tt_top.gif) top right no-repeat; overflow:hidden}
+#ttcont {display:block; width:175px; text-align:left; padding:2px 12px 3px 7px; margin-left:5px; background:#666; color:#FFF}
+#ttbot {display:block; height:5px; margin-left:5px; background:url(tt_bottom.gif) top right no-repeat; overflow:hidden}
+
+#help {
+	position:absolute;
+	left: 0px;
+	top: 0px;
+	margin: 0;
+	padding: 10px;
+	height: 90%;
+	width : 70%;
+	background:#666;
+	color: #FFF;
+	display:none;
+	-webkit-border-radius:10px 20px 20px 5px;
+	-moz-border-radius:10px 20px 20px 5px;
+	border-radius:10px 20px 20px 5px;
+}
