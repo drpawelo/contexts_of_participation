@@ -1,4 +1,6 @@
-# contexts_of_participation
+# contexts of participation
+
+To see the project as an interactive website, visit: https://drpawelo.github.io/contexts_of_participation/
 
 # work in progress
 
