@@ -1,0 +1,222 @@
+/* @media (grid:0) {
+.mywheel{
+  display: grid; 
+    grid-template: 150px 250px 150px 150px 150px / 150px 250px 150px 150px 150px 150px 150px 150px;
+}
+
+.myring{
+  grid-row: 2;
+}
+
+
+  .Wheel {
+    background-color: orange;
+    height: fit-content;
+    width: fit-content;
+    display: grid; 
+    grid-template-rows: 150px 150px 150px 150px 150px; 
+    grid-template-columns: 150px 150px 150px 150px 150px 150px 150px 150px;
+    gap: 5px;
+    font-family:'Roboto Mono', monospace;
+    font-size: large;
+    color: darkblue;
+  }
+
+
+
+  .Segment1 {
+    background-color: lightblue;
+    grid-row: 1;
+    grid-column: 1 / 3; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment2 {
+    background-color: lightblue;
+    grid-row: 1;
+    grid-column: 4 / 6 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment3 {
+    background-color: lightblue;
+    grid-row: 1;
+    grid-column: 7 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+
+  
+  .Segment4 {
+    background-color: lightslategrey;
+    grid-row: 2;
+    grid-column-start: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment5 {
+    background-color: lightslategrey;
+    grid-row: 2;
+    grid-column-start: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment6 {
+    background-color:lightslategrey;
+    grid-row: 2;
+    grid-column-start: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment7 {
+    background-color: lightslategrey;
+    grid-row: 2;
+    grid-column-start: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment8 {
+    background-color: lightslategrey;
+    grid-row: 2;
+    grid-column-start: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment9 {
+    background-color: lightslategrey;
+    grid-row: 2;
+    grid-column-start: 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment10 {
+    background-color: lightslategrey;
+    grid-row: 2;
+    grid-column-start: 7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  } 
+  
+  .Segment11 {
+    background-color: lightslategrey;
+    grid-row: 2;
+    grid-column-start: 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  } 
+
+  
+  .Segment12 {
+    background-color: lightblue;
+    grid-row: 3;
+    grid-column: 2 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment13 {
+    background-color: lightblue;
+    grid-row: 3;
+    grid-column: 4 / 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment14 {
+    background-color: lightblue;
+    grid-row: 3;
+    grid-column: 6 / 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+
+  
+  .Segment15 {
+    background-color: lightslategrey;
+    grid-row: 4;
+    grid-column: 3 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+  .Segment16 {
+    background-color: lightslategrey;
+    grid-row: 4;
+    grid-column: 5 / 7 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+  
+
+  
+  .Segment17 {
+    background-color: lightblue;
+    grid-row: 5;
+    grid-column: 4 / 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+  }
+ 
+
+}  */
