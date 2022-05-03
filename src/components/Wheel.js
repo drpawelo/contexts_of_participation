@@ -2,13 +2,15 @@ import React from 'react';
 import Ring from './Ring';
 
 function Wheel(props) {
+    console.log('props');
+    console.log(props.style);
     return (
         <div className="Wheel" >
             {
-                props.rings.map(oneRingData => (
+                props.rings.map((oneRingData, index) => (
                     <Ring
-                        segmentsList={oneRingData.segments}
-                        color={oneRingData.color}
+                        segmentsList={oneRingData.item}
+                        color={props.style.colors[index]}
                     />
                 ))
             }

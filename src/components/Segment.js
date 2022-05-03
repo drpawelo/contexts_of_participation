@@ -2,9 +2,9 @@ import React from 'react';
 
 function Segment(props) {
     return(
-        <div className="Segment" >
-                <p>{props.title}</p>
-        </div>
+        <li className="Segment" >
+                <p>{props.title} - {props.description} </p>
+        </li>
     ); 
 }
 

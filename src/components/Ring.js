@@ -3,17 +3,20 @@ import Segment from './Segment';
 
 function Ring(props) {
     return(
-        <div className="Ring" style={{color: props.color}} >
+        <div>
+            <p>{"ring"}</p>
+            <ul className="Ring" style={{color: props.color}} >
                 {
                      props.segmentsList.map(oneSegment => (
-                        <Segment title = {oneSegment.topic} />
+                        <Segment title = {oneSegment['$']["name"]}
+                        description={oneSegment['_']} />
                      ))
                 }
+        </ul>
         </div>
+       
     ); 
 }
-
-
 export default Ring;
 
 //  in props segmentsList are like:   
