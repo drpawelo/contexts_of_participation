@@ -1,13 +1,13 @@
 // JavaScript Document
 var platform;
 var small = false;
-var initAngles = [Math.PI * 4/3,0, Math.PI * 4/3, 0];
-var wheelAngles = [Math.PI * 4/3,0, Math.PI * 4/3, 0];
+var initAngles = [Math.PI * 4/3,0, Math.PI * 4/3, 0,0,0,0];
+var wheelAngles = [Math.PI * 4/3,0, Math.PI * 4/3, 0,0,0,0];
 var wheelRotateInfo = { id:-1, startAngle:0 };
 var wheels = [];
 var glossaryActive = false;
 var settingsPanel;
-var crect = { x:0, y:0, w:700, h:700 };
+var crect = { x:0, y:0, w:800, h:800 };
 var glossary = [];
 var updating = false;
 var touchactive = false;
@@ -29,8 +29,8 @@ function hitarea(x,y,w,h){
 }
 
 function settingsPanelData(){
-	var size = (small) ? crect.w : 700;	
-	var sizeH = (small) ? crect.h : 350;	
+	var size = (small) ? crect.w : 800;	
+	var sizeH = (small) ? crect.h : 400;	
 	this.w = Math.floor(size * 0.7);
 	this.h = Math.floor(sizeH);
 	this.corner = (small) ? Math.min(parseInt((6/310)*crect.w),12) : 12;
@@ -126,7 +126,7 @@ function settingsPanelData(){
 		}
 		if (this.resetButton.hit(x,y)){
 			if (down){
-				var cols = ['#568DC9', '#F3663C', '#8C8DBA', '#6CC27A', '#7674A8', '#15196F'];
+				var cols = ['#568DC9', '#F3663C', '#8C8DBA', '#6CC27A', '#7674A8', '#15196F', '#568DC9'];
 				for(i in this.radios){
 					var r = parseInt(cols[i].substr(1, 2), 16);
 					var g = parseInt(cols[i].substr(3, 2), 16);
@@ -144,8 +144,8 @@ function settingsPanelData(){
 	this.closePanel = function(){		
 		this.sliderID = -1;
 		this.active = false;
-		var size = (small) ? crect.w : 700;
-		var sizeH = (small) ? parseInt((400/310) * crect.w) : 700;
+		var size = (small) ? crect.w : 800;
+		var sizeH = (small) ? parseInt((400/310) * crect.w) : 800;
 		var canvas = $('#ctt'); 
 		if (canvas[0].getContext){
 			var ctx = canvas[0].getContext('2d');
@@ -305,8 +305,8 @@ function initTool(){
 	var canvas = $('#ctt'); 
 	var logo = $('#logoholder');
 	var logoimg = $('#logo');
-	
-	for(var i=1; i<=5; i++){
+	let number_of_wheels = 6;//glossary.length;
+	for(var i=1; i<=number_of_wheels; i++){
 		var wheel = $('#wheel' + i);
 		wheels.push(wheel);
 	}
@@ -323,7 +323,7 @@ function initTool(){
 		platform = (navigator.platform=='iPhone') ? 'iPhone' : 'Android';
 		if (platform == 'Android'){
 			//alert($(window).width() + ", " + $(window).height());
-			if ($(window).width()<700 || $(window).height()<700){
+			if ($(window).width()<800 || $(window).height()<800){
 				if ($(window).width()<$(window).height()){
 					crect.w = parseInt($(window).width() * 0.95);
 					crect.h = parseInt(crect.w*1.16);
@@ -388,6 +388,8 @@ function initTool(){
 	settingsPanel.radios.push(new radio("Individual", settingsPanel.x+settingsPanel.padding,settingsPanel.y+settingsPanel.padding+(settingsPanel.inputH*1.4)*6, settingsPanel.w-settingsPanel.padding*2, settingsPanel.inputH, settingsPanel.radioID==3, wheelColours[3]));	 
 	settingsPanel.radios.push(new radio("Participation", settingsPanel.x+settingsPanel.padding, settingsPanel.y+settingsPanel.padding+(settingsPanel.inputH*1.4)*7, settingsPanel.w-settingsPanel.padding*2, settingsPanel.inputH, settingsPanel.radioID==4, wheelColours[4]));	
 	settingsPanel.radios.push(new radio("Text", settingsPanel.x+settingsPanel.padding, settingsPanel.y+settingsPanel.padding+(settingsPanel.inputH*1.4)*8, settingsPanel.w-settingsPanel.padding*2, settingsPanel.inputH, settingsPanel.radioID==5, wheelColours[5]));	
+	//new
+	// settingsPanel.radios.push(new radio("New", settingsPanel.x+settingsPanel.padding, settingsPanel.y+settingsPanel.padding+(settingsPanel.inputH*1.4)*9, settingsPanel.w-settingsPanel.padding*2, settingsPanel.inputH, settingsPanel.radioID==6, wheelColours[6]));	
 
 	initWheels();
 	drawTool(); 
@@ -398,7 +400,7 @@ function initTool(){
 function drawButton( label, x, y, selected ){
 	var canvas = $('#ctt'); 
 	if (canvas[0].getContext){
-		var size = (small) ? crect.w : 700;
+		var size = (small) ? crect.w : 800;
 		var ctx = canvas[0].getContext('2d');
 		
 		var w = (small) ? parseInt((100/310)*crect.w) : 124;
@@ -461,24 +463,26 @@ function getWheelIDByXY(x,y){
 	y -= centre;
 	var mag = Math.sqrt(x*x + y*y)/radius;
 	var res = -1;
-	if (mag<1.0){
-		if (mag>0.8){
+	if (mag<1.2){
+		if (mag>1.0){
 			res = 0;
-		}else if (mag>0.6){
+		}else if (mag>0.8){
 			res = 1;
-		}else if (mag>0.4){
+		}else if (mag>0.6){
 			res = 2;
-		}else if (mag>0.2){
+		}else if (mag>0.4){
 			res = 3;
-		}else{
+		}else if (mag>0.2){
 			res = 4;
+		}else{
+			res = 5;
 		}
 	}
 	return res;
 }
 
 function getTheta( x, y ){
-	var centre = (small) ? (crect.w/2) : 350;
+	var centre = (small) ? (crect.w/2) : 330;
 	x -= centre;
 	y -= centre;
 	return Math.atan2(y, x);
@@ -494,6 +498,7 @@ function canvasMouseDown(ev){
 		//console.log('canvasMouseDown (%d, %d)=%d', pos.x, pos.y, settingsPanel.sliderID);
 	}else{
 		wheelRotateInfo.id = getWheelIDByXY(pos.x, pos.y);	
+		console.log("wheel",wheelRotateInfo.id);
 		if (wheelRotateInfo.id != -1){
 			wheelRotateInfo.startAngle = wheelAngles[wheelRotateInfo.id];
 			wheelRotateInfo.userAngle = getTheta(pos.x, pos.y);	
@@ -532,7 +537,7 @@ function handleGlossary(pos, ev){
 	}else{
 		setCursor('pointer');
 		var theta = getTheta(pos.x, pos.y) - wheelAngles[wheelID];
-		if (wheelID==0 || wheelID==2){
+		if (wheelID==0 || wheelID==2 ){
 			theta += Math.PI*(0.5 + 0.66);
 		}else if(wheelID==1){
 			theta -= Math.PI*0.75;
@@ -659,7 +664,7 @@ function checkButtons(mx, my){
 function checkButton(x, y, mx, my){
 	var w = (small) ? parseInt((100/310) * crect.w) : 124;
 	var h = (small) ? parseInt((48/310) * crect.w) : 59;
-	var size = (small) ? crect.w : 700;
+	var size = (small) ? crect.w : 800;
 	x *= size;
 	y *= size;
 	if (small){
@@ -770,9 +775,10 @@ function drawTool(){
 	var canvas = $('#ctt');
 	var ctx = canvas[0].getContext('2d');
 	drawCircle( ctx, '#FFFFFF', 1.01 );	
-	for(var i=0; i<5; i++){
+	let number_of_wheels = 6;
+	for(var i=0; i<number_of_wheels; i++){
 		//ctx = wheels[i][0].getContext('2d');
-		if (i<4){
+		if (i<number_of_wheels-1){
 			ctx.save();
 			ctx.translate(centre, centre);
 			ctx.rotate(wheelAngles[i]);
@@ -788,40 +794,47 @@ function drawTool(){
 function initWheels(){
 	var centre = (small) ? (crect.w/2) : 350;
 	var radius = (small) ? parseInt(centre) * 0.95 : 330;
-	var size = (small) ? crect.w : 700;
+	var size = (small) ? crect.w : 800;
 
 	var ctx = wheels[0][0].getContext('2d');
+	ctx.clearRect(0, 0, size, size);
+	drawRadialGradient(ctx, wheelColours[3], 1.2, 6);//TODO
+	ctx.font = (small) ? "bold " + Math.min(parseInt((9/310) * crect.w), 16) + "px Courier" : "bold 16px Courier";
+	ctx.fillTextCircle("          A1                     A2                        A3            ",1.1,wheelColours[5],initAngles[0]);
+	ctx.drawTriangles( wheelColours[5], 1.2, 3, initAngles[0]);	
+	
+	ctx = wheels[1][0].getContext('2d');
 	ctx.clearRect(0, 0, size, size);
 	drawRadialGradient(ctx, wheelColours[0], 1, 5);
 	ctx.font = (small) ? "bold " + Math.min(parseInt((9/310) * crect.w), 16) + "px Courier" : "bold 16px Courier";
 	ctx.fillTextCircle("   SOCIO-CULTURAL VALUES       TYPE OF ECONOMY          NATIONAL POLICIES     ",0.9,wheelColours[5],initAngles[0]);
-	ctx.drawTriangles( wheelColours[5], 1, 3, initAngles[0] + Math.PI/3);	
-	
-	ctx = wheels[1][0].getContext('2d');
+	ctx.drawTriangles( wheelColours[5], 1, 3, initAngles[1] + Math.PI/3);
+
+	ctx = wheels[2][0].getContext('2d');
 	ctx.clearRect(0, 0, size, size);
 	drawRadialGradient(ctx, wheelColours[1], 0.8, 4);
 	ctx.font = (small) ? "bold " + Math.min(parseInt((9/310) * crect.w), 16) + "px Courier" : "bold 16px Courier";
 	ctx.fillTextCircle("  LEISURE        WORK          MEDIA       EDUCATION      HOUSING      ECONOMIC      HEALTH &     TECHNOLOGY   ",0.70,wheelColours[5],initAngles[1]+4);
 	ctx.fillTextCircle("                                                                       STATUS      SOCIAL CARE                ",0.65,wheelColours[5],initAngles[1]+4);
-	ctx.drawTriangles( wheelColours[5], 0.8, 8, initAngles[1]);
+	ctx.drawTriangles( wheelColours[5], 0.8, 8, initAngles[2]);
 
-	ctx = wheels[2][0].getContext('2d');
+	ctx = wheels[3][0].getContext('2d');
 	ctx.clearRect(0, 0, size, size);
 	drawRadialGradient(ctx, wheelColours[2], 0.6, 3);
 	ctx.font = (small) ? "bold " + Math.min(parseInt((9/310) * crect.w), 16) + "px Courier" : "bold 16px Courier";
 	ctx.fillTextCircle("LOCAL ENVIRONMENTS         SUPPORT NETWORKS      DAILY LIVING ACTIVITIES     ",0.5,wheelColours[5],initAngles[2] + 0.3);
-	ctx.drawTriangles( wheelColours[5], 0.6, 3, initAngles[2] + Math.PI/3);
+	ctx.drawTriangles( wheelColours[5], 0.6, 3, initAngles[3] + Math.PI/3);
 	
-	ctx = wheels[3][0].getContext('2d');
+	ctx = wheels[4][0].getContext('2d');
 	ctx.clearRect(0, 0, size, size);
 	drawRadialGradient(ctx, wheelColours[3], 0.4, 2);
 	ctx.font = (small) ? "bold " + Math.min(parseInt((9/310) * crect.w), 16) + "px Courier" : "bold 16px Courier";
 	ctx.fillTextCircle("THE BODY    IDENTITY    ",0.3,wheelColours[5],initAngles[3] + Math.PI + 0.6);
-	ctx.drawTriangles( wheelColours[5], 0.4, 2, initAngles[3]);
+	ctx.drawTriangles( wheelColours[5], 0.4, 2, initAngles[4]);
 
-	ctx = wheels[4][0].getContext('2d');
+	ctx = wheels[5][0].getContext('2d');
 	ctx.clearRect(0, 0, size, size);
-	drawCircle(ctx, wheelColours[4], 0.2);
+	drawCircle(ctx, wheelColours[5], 0.2);
 	ctx.font = (small) ? "bold " + Math.min(parseInt((9/310) * crect.w), 16) + "px Courier" : "bold 16px Courier";
 	ctx.fillTextCircle("PARTICIPATION  ", 0.1, '#FFFFFF', Math.PI + 0.6);	
 }
@@ -829,7 +842,7 @@ function initWheels(){
 function drawRadialGradient( ctx, col, rad, count ){
 	var centre = (small) ? (crect.w/2) : 350;
 	var radius = (small) ? parseInt(centre) * 0.95 : 330;
-	var size = (small) ? crect.w : 700;
+	var size = (small) ? crect.w : 800;
 	
 	var r = parseInt(col.substr(1, 2), 16);
 	var g = parseInt(col.substr(3, 2), 16);
@@ -914,10 +927,10 @@ function parseGlossaryXML(xml){
 	$(xml).find("wheel").each(function(){
 		var wheel = new Array();
 		$(this).find("item").each(function(){
-			//console.log('glossary %s %s', $(this).attr('name'), $(this).text());
+			// console.log('glossary %s %s', $(this).attr('name'), $(this).text());
 			wheel.push({title:$(this).attr('name'), text:$(this).text()});
 		});
 		glossary.push(wheel);
 	});
-	//console.log('parseGlossaryXML %d', glossary.length);
+	// console.log('parseGlossaryXML %d', glossary.length);
 }

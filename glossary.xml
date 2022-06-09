@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wheels>
+	<wheel name="NEW WHEEL">
+		<item name="aaa a aaa">Description A</item> 
+		<item name="bbbb b bbbb">Description B</item> 
+		<item name="cccc c ccc c">Description C</item> 
+	</wheel>
 	<wheel name="National Factors">
 		<item name="Socio-cultural values">Shared beliefs, ideals, values and principles, e.g. justice, human rights, equality and liberty also traditions such as gender roles. Mono or multi-cultural society. Religious/secular society.</item> 
 		<item name="Type of economy">The production, distribution and consumption of goods and services, e.g. capitalist, socialist, free trade, market, mixed, agrarian, industrial, post-industrial.</item>
